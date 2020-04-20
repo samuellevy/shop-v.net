@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-using shop.Domain.Commands.Hanlders;
+using shop.Domain.Commands.Handlers;
 
 namespace shop
 {
@@ -28,7 +30,7 @@ namespace shop
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
-      services.AddTransient<ICreateCustomerHandler, CreateCustomerHandler>();
+      services.AddMediatR(Assembly.GetExecutingAssembly());
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
