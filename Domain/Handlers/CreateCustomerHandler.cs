@@ -18,7 +18,7 @@ namespace shop.Domain.Commands.Hanlders
         Name = "Samuel Levy",
         Email = "samuel@nokengo.com.br",
         Date = DateTime.Now
-      }
+      };
     }
   }
 }
